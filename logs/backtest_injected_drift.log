@@ -1,0 +1,70 @@
+$ python -m grid_drift_healing.backtest --lat 31.82 --lon 117.23 --inject-drift 2025-09-01:0.8 --out reports/backtest_hefei_injected_drift.json
+# date: 2026-11-23 00:45:23 CST  host: Linux 6.12.113+  python: Python 3.13.5  commit: fb9aa20
+grid-drift-healing 0.1.0 backtest
+data source: open-meteo-cache
+location: lat=31.82 lon=117.23  raw rows=24840  range=2024-01-01 00:00:00+00:00 .. 2026-10-31 23:00:00+00:00
+features: lags>=24h, calendar, clear-sky geometry, cloud/temp/wind/RH (perfect-prognosis); irradiance excluded
+target: virtual 1000 kW PV plant (PVWatts-style proxy from irradiance+temperature)
+injected drift: 2025-09-01:0.8
+test window: 2025-01-08 .. 2026-10-30  (661 days, 15864 hourly points)
+
+strategy           pinball     CRPS~   MAE_p50  RMSE_p50   cov80  retrains
+seasonal_naive      15.847    31.695    37.140    84.599   0.806         -
+static_gbm           9.174    18.348    22.989    47.662   0.944         -
+periodic_gbm         7.440    14.879    19.611    41.410   0.884        22
+healing_gbm          7.448    14.895    20.043    42.572   0.879        12
+
+Diebold-Mariano (one-sided, H1: healing has lower pinball loss; HAC lag 24, HLN-corrected):
+  healing_vs_static_gbm          DM=+20.008  p=0  mean_diff=+1.7264
+  healing_vs_periodic_gbm        DM=-0.117  p=0.5466  mean_diff=-0.0080
+  healing_vs_seasonal_naive      DM=+17.581  p=0  mean_diff=+8.3999
+
+healing attempts: 44  promotions: 12
+  2025-03-09  trigger=psi          psi_max=0.756 rel_loss=0.190 base=0.967 DM=+1.53 p=0.0633 -> rejected
+  2025-03-25  trigger=psi          psi_max=0.829 rel_loss=0.233 base=0.967 DM=+2.58 p=0.0052 -> PROMOTED
+  2025-04-10  trigger=psi          psi_max=0.963 rel_loss=0.248 base=0.210 DM=-3.34 p=0.9995 -> rejected
+  2025-04-17  trigger=psi          psi_max=1.444 rel_loss=0.248 base=0.210 DM=-1.48 p=0.9297 -> rejected
+  2025-04-24  trigger=psi          psi_max=0.913 rel_loss=0.194 base=0.210 DM=+5.14 p=0.0000 -> PROMOTED
+  2025-07-09  trigger=pinball      psi_max=0.144 rel_loss=0.285 base=0.202 DM=+7.60 p=0.0000 -> PROMOTED
+  2025-07-25  trigger=psi          psi_max=0.912 rel_loss=0.220 base=0.205 DM=+0.71 p=0.2402 -> rejected
+  2025-08-29  trigger=pinball      psi_max=0.081 rel_loss=0.354 base=0.205 DM=-14.31 p=1.0000 -> rejected
+  2025-09-17  trigger=pinball      psi_max=0.198 rel_loss=0.266 base=0.205 DM=+0.69 p=0.2446 -> rejected
+  2025-09-26  trigger=psi          psi_max=0.844 rel_loss=0.215 base=0.205 DM=-0.14 p=0.5568 -> rejected
+  2025-10-03  trigger=psi          psi_max=1.458 rel_loss=0.245 base=0.205 DM=+2.50 p=0.0064 -> PROMOTED
+  2025-10-10  trigger=psi          psi_max=0.784 rel_loss=0.315 base=0.209 DM=+0.71 p=0.2389 -> rejected
+  2025-10-18  trigger=psi          psi_max=0.798 rel_loss=0.213 base=0.209 DM=+3.37 p=0.0004 -> PROMOTED
+  2025-11-15  trigger=psi+pinball  psi_max=0.783 rel_loss=0.276 base=0.200 DM=+3.82 p=0.0001 -> PROMOTED
+  2025-11-29  trigger=pinball      psi_max=0.182 rel_loss=0.341 base=0.232 DM=+0.00 p=1.0000 -> rejected
+  2025-12-06  trigger=pinball      psi_max=0.398 rel_loss=0.317 base=0.232 DM=-0.28 p=0.6102 -> rejected
+  2025-12-13  trigger=pinball      psi_max=0.356 rel_loss=0.316 base=0.232 DM=+2.00 p=0.0230 -> PROMOTED
+  2025-12-28  trigger=pinball      psi_max=0.214 rel_loss=0.283 base=0.219 DM=+1.27 p=0.1018 -> rejected
+  2026-01-15  trigger=psi          psi_max=8.307 rel_loss=0.250 base=0.219 DM=+5.90 p=0.0000 -> PROMOTED
+  2026-02-13  trigger=psi          psi_max=0.801 rel_loss=0.161 base=0.166 DM=+0.44 p=0.3293 -> rejected
+  2026-02-20  trigger=psi          psi_max=1.121 rel_loss=0.179 base=0.166 DM=+2.66 p=0.0040 -> PROMOTED
+  2026-03-18  trigger=psi          psi_max=0.813 rel_loss=0.188 base=0.164 DM=-4.01 p=1.0000 -> rejected
+  2026-03-25  trigger=psi          psi_max=1.144 rel_loss=0.155 base=0.164 DM=-3.49 p=0.9997 -> rejected
+  2026-04-01  trigger=psi          psi_max=1.753 rel_loss=0.146 base=0.164 DM=-2.83 p=0.9975 -> rejected
+  2026-04-08  trigger=psi          psi_max=2.030 rel_loss=0.122 base=0.164 DM=-0.51 p=0.6945 -> rejected
+  2026-04-15  trigger=psi          psi_max=2.639 rel_loss=0.126 base=0.164 DM=-1.77 p=0.9611 -> rejected
+  2026-04-22  trigger=psi          psi_max=3.282 rel_loss=0.153 base=0.164 DM=-2.61 p=0.9953 -> rejected
+  2026-04-29  trigger=psi          psi_max=3.340 rel_loss=0.170 base=0.164 DM=-0.20 p=0.5786 -> rejected
+  2026-05-06  trigger=psi          psi_max=2.385 rel_loss=0.142 base=0.164 DM=-0.92 p=0.8204 -> rejected
+  2026-05-13  trigger=psi          psi_max=1.022 rel_loss=0.149 base=0.164 DM=-3.01 p=0.9986 -> rejected
+  2026-05-20  trigger=pinball      psi_max=0.312 rel_loss=0.211 base=0.164 DM=-2.44 p=0.9923 -> rejected
+  2026-05-27  trigger=pinball      psi_max=0.275 rel_loss=0.219 base=0.164 DM=-1.17 p=0.8794 -> rejected
+  2026-06-03  trigger=pinball      psi_max=0.294 rel_loss=0.225 base=0.164 DM=-2.62 p=0.9954 -> rejected
+  2026-06-10  trigger=psi          psi_max=0.913 rel_loss=0.195 base=0.164 DM=-2.88 p=0.9979 -> rejected
+  2026-06-17  trigger=pinball      psi_max=0.269 rel_loss=0.221 base=0.164 DM=+0.45 p=0.3251 -> rejected
+  2026-06-24  trigger=pinball      psi_max=0.508 rel_loss=0.266 base=0.164 DM=+2.47 p=0.0070 -> PROMOTED
+  2026-07-13  trigger=psi          psi_max=0.987 rel_loss=0.178 base=0.233 DM=+1.66 p=0.0485 -> PROMOTED
+  2026-07-27  trigger=pinball      psi_max=0.820 rel_loss=0.191 base=0.152 DM=+0.00 p=1.0000 -> rejected
+  2026-08-03  trigger=pinball      psi_max=0.438 rel_loss=0.213 base=0.152 DM=-0.17 p=0.5677 -> rejected
+  2026-08-10  trigger=pinball      psi_max=0.171 rel_loss=0.312 base=0.152 DM=-0.53 p=0.7016 -> rejected
+  2026-08-17  trigger=pinball      psi_max=0.220 rel_loss=0.236 base=0.152 DM=+1.61 p=0.0546 -> rejected
+  2026-08-24  trigger=pinball      psi_max=0.227 rel_loss=0.196 base=0.152 DM=+2.61 p=0.0048 -> PROMOTED
+  2026-10-13  trigger=pinball      psi_max=0.395 rel_loss=0.264 base=0.200 DM=-3.12 p=0.9990 -> rejected
+  2026-10-27  trigger=psi          psi_max=0.843 rel_loss=0.140 base=0.200 DM=-3.20 p=0.9992 -> rejected
+
+runtime: 177.2 s
+report written to reports/backtest_hefei_injected_drift.json
+# exit code: 0

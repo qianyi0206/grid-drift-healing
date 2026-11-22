@@ -1,0 +1,95 @@
+$ python -m grid_drift_healing.backtest --lat 31.82 --lon 117.23 --start 2024-01-01 --end 2026-10-31 -v --out reports/backtest_hefei.json
+# date: 2026-11-23 00:42:39 CST  host: Linux 6.12.113+  python: Python 3.13.5  commit: fb9aa20
+2026-11-23 00:42:42,002 INFO grid_drift_healing.ingestion: fetched 24840 rows from Open-Meteo, cached to data/cache/openmeteo_31.82_117.23_2024-01-01_2026-10-31_b941f40e898f.csv
+2026-11-23 00:43:00,001 INFO grid_drift_healing.healing: heal attempt 2025-03-09 00:00:00+00:00 trigger=psi dm=1.53 p=0.0633 promoted=False
+2026-11-23 00:43:09,374 INFO grid_drift_healing.healing: heal attempt 2025-03-25 00:00:00+00:00 trigger=psi dm=2.58 p=0.0052 promoted=True
+2026-11-23 00:43:13,071 INFO grid_drift_healing.healing: heal attempt 2025-04-10 00:00:00+00:00 trigger=psi dm=-3.34 p=0.9995 promoted=False
+2026-11-23 00:43:15,005 INFO grid_drift_healing.healing: heal attempt 2025-04-17 00:00:00+00:00 trigger=psi dm=-1.48 p=0.9297 promoted=False
+2026-11-23 00:43:20,785 INFO grid_drift_healing.healing: heal attempt 2025-04-24 00:00:00+00:00 trigger=psi dm=5.14 p=0.0000 promoted=True
+2026-11-23 00:43:33,289 INFO grid_drift_healing.healing: heal attempt 2025-07-09 00:00:00+00:00 trigger=pinball dm=7.60 p=0.0000 promoted=True
+2026-11-23 00:43:35,452 INFO grid_drift_healing.healing: heal attempt 2025-07-25 00:00:00+00:00 trigger=psi dm=0.71 p=0.2402 promoted=False
+2026-11-23 00:43:39,603 INFO grid_drift_healing.healing: heal attempt 2025-08-29 00:00:00+00:00 trigger=pinball dm=-14.31 p=1.0000 promoted=False
+2026-11-23 00:43:47,081 INFO grid_drift_healing.healing: heal attempt 2025-09-26 00:00:00+00:00 trigger=psi dm=1.67 p=0.0479 promoted=True
+2026-11-23 00:43:52,704 INFO grid_drift_healing.healing: heal attempt 2025-10-03 00:00:00+00:00 trigger=psi dm=2.36 p=0.0093 promoted=True
+2026-11-23 00:44:00,144 INFO grid_drift_healing.healing: heal attempt 2025-10-10 00:00:00+00:00 trigger=psi dm=1.89 p=0.0298 promoted=True
+2026-11-23 00:44:04,387 INFO grid_drift_healing.healing: heal attempt 2025-11-15 00:00:00+00:00 trigger=psi dm=1.38 p=0.0844 promoted=False
+2026-11-23 00:44:09,824 INFO grid_drift_healing.healing: heal attempt 2025-12-02 00:00:00+00:00 trigger=pinball dm=4.38 p=0.0000 promoted=True
+2026-11-23 00:44:16,298 INFO grid_drift_healing.healing: heal attempt 2026-01-15 00:00:00+00:00 trigger=psi dm=-4.44 p=1.0000 promoted=False
+2026-11-23 00:44:19,995 INFO grid_drift_healing.healing: heal attempt 2026-02-08 00:00:00+00:00 trigger=psi dm=-1.65 p=0.9497 promoted=False
+2026-11-23 00:44:21,834 INFO grid_drift_healing.healing: heal attempt 2026-02-15 00:00:00+00:00 trigger=psi dm=-1.70 p=0.9546 promoted=False
+2026-11-23 00:44:27,023 INFO grid_drift_healing.healing: heal attempt 2026-02-22 00:00:00+00:00 trigger=psi dm=6.78 p=0.0000 promoted=True
+2026-11-23 00:44:30,625 INFO grid_drift_healing.healing: heal attempt 2026-03-13 00:00:00+00:00 trigger=pinball dm=-4.40 p=1.0000 promoted=False
+2026-11-23 00:44:32,428 INFO grid_drift_healing.healing: heal attempt 2026-03-20 00:00:00+00:00 trigger=psi dm=-2.95 p=0.9983 promoted=False
+2026-11-23 00:44:34,244 INFO grid_drift_healing.healing: heal attempt 2026-03-27 00:00:00+00:00 trigger=psi dm=1.34 p=0.0901 promoted=False
+2026-11-23 00:44:36,098 INFO grid_drift_healing.healing: heal attempt 2026-04-03 00:00:00+00:00 trigger=psi dm=-3.55 p=0.9998 promoted=False
+2026-11-23 00:44:39,835 INFO grid_drift_healing.healing: heal attempt 2026-04-10 00:00:00+00:00 trigger=psi dm=0.28 p=0.3903 promoted=False
+2026-11-23 00:44:41,762 INFO grid_drift_healing.healing: heal attempt 2026-04-17 00:00:00+00:00 trigger=psi dm=0.82 p=0.2075 promoted=False
+2026-11-23 00:44:43,229 INFO grid_drift_healing.healing: heal attempt 2026-04-24 00:00:00+00:00 trigger=psi dm=-1.81 p=0.9648 promoted=False
+2026-11-23 00:44:45,013 INFO grid_drift_healing.healing: heal attempt 2026-05-01 00:00:00+00:00 trigger=psi dm=-0.52 p=0.6993 promoted=False
+2026-11-23 00:44:47,855 INFO grid_drift_healing.healing: heal attempt 2026-05-08 00:00:00+00:00 trigger=psi dm=-2.49 p=0.9934 promoted=False
+2026-11-23 00:44:52,000 INFO grid_drift_healing.healing: heal attempt 2026-06-07 00:00:00+00:00 trigger=psi dm=-1.02 p=0.8464 promoted=False
+2026-11-23 00:44:56,289 INFO grid_drift_healing.healing: heal attempt 2026-07-14 00:00:00+00:00 trigger=psi dm=-1.40 p=0.9180 promoted=False
+2026-11-23 00:44:58,200 INFO grid_drift_healing.healing: heal attempt 2026-07-21 00:00:00+00:00 trigger=psi dm=-3.49 p=0.9997 promoted=False
+2026-11-23 00:45:00,063 INFO grid_drift_healing.healing: heal attempt 2026-07-28 00:00:00+00:00 trigger=psi dm=-5.19 p=1.0000 promoted=False
+2026-11-23 00:45:04,109 INFO grid_drift_healing.healing: heal attempt 2026-08-27 00:00:00+00:00 trigger=pinball dm=-4.40 p=1.0000 promoted=False
+2026-11-23 00:45:10,300 INFO grid_drift_healing.healing: heal attempt 2026-09-03 00:00:00+00:00 trigger=pinball dm=-1.75 p=0.9591 promoted=False
+2026-11-23 00:45:15,043 INFO grid_drift_healing.healing: heal attempt 2026-09-17 00:00:00+00:00 trigger=pinball dm=-3.07 p=0.9988 promoted=False
+2026-11-23 00:45:20,484 INFO grid_drift_healing.healing: heal attempt 2026-10-11 00:00:00+00:00 trigger=pinball dm=-3.34 p=0.9995 promoted=False
+grid-drift-healing 0.1.0 backtest
+data source: open-meteo
+location: lat=31.82 lon=117.23  raw rows=24840  range=2024-01-01 00:00:00+00:00 .. 2026-10-31 23:00:00+00:00
+features: lags>=24h, calendar, clear-sky geometry, cloud/temp/wind/RH (perfect-prognosis); irradiance excluded
+target: virtual 1000 kW PV plant (PVWatts-style proxy from irradiance+temperature)
+injected drift: none
+test window: 2025-01-08 .. 2026-10-30  (661 days, 15864 hourly points)
+
+strategy           pinball     CRPS~   MAE_p50  RMSE_p50   cov80  retrains
+seasonal_naive      18.312    36.623    42.540    95.870   0.791         -
+static_gbm           9.477    18.954    21.041    45.146   0.884         -
+periodic_gbm         8.092    16.183    20.744    44.499   0.859        22
+healing_gbm          7.922    15.844    21.109    45.407   0.841         8
+
+Diebold-Mariano (one-sided, H1: healing has lower pinball loss; HAC lag 24, HLN-corrected):
+  healing_vs_static_gbm          DM=+17.716  p=0  mean_diff=+1.5553
+  healing_vs_periodic_gbm        DM=+2.213  p=0.01347  mean_diff=+0.1698
+  healing_vs_seasonal_naive      DM=+19.204  p=0  mean_diff=+10.3897
+
+healing attempts: 34  promotions: 8
+  2025-03-09  trigger=psi          psi_max=0.756 rel_loss=0.190 base=0.967 DM=+1.53 p=0.0633 -> rejected
+  2025-03-25  trigger=psi          psi_max=0.829 rel_loss=0.233 base=0.967 DM=+2.58 p=0.0052 -> PROMOTED
+  2025-04-10  trigger=psi          psi_max=0.963 rel_loss=0.248 base=0.210 DM=-3.34 p=0.9995 -> rejected
+  2025-04-17  trigger=psi          psi_max=1.444 rel_loss=0.248 base=0.210 DM=-1.48 p=0.9297 -> rejected
+  2025-04-24  trigger=psi          psi_max=0.913 rel_loss=0.194 base=0.210 DM=+5.14 p=0.0000 -> PROMOTED
+  2025-07-09  trigger=pinball      psi_max=0.144 rel_loss=0.285 base=0.202 DM=+7.60 p=0.0000 -> PROMOTED
+  2025-07-25  trigger=psi          psi_max=0.912 rel_loss=0.220 base=0.205 DM=+0.71 p=0.2402 -> rejected
+  2025-08-29  trigger=pinball      psi_max=0.081 rel_loss=0.354 base=0.205 DM=-14.31 p=1.0000 -> rejected
+  2025-09-26  trigger=psi          psi_max=0.844 rel_loss=0.196 base=0.205 DM=+1.67 p=0.0479 -> PROMOTED
+  2025-10-03  trigger=psi          psi_max=0.769 rel_loss=0.192 base=0.168 DM=+2.36 p=0.0093 -> PROMOTED
+  2025-10-10  trigger=psi          psi_max=0.784 rel_loss=0.313 base=0.173 DM=+1.89 p=0.0298 -> PROMOTED
+  2025-11-15  trigger=psi          psi_max=0.909 rel_loss=0.270 base=0.233 DM=+1.38 p=0.0844 -> rejected
+  2025-12-02  trigger=pinball      psi_max=0.225 rel_loss=0.378 base=0.233 DM=+4.38 p=0.0000 -> PROMOTED
+  2026-01-15  trigger=psi          psi_max=8.307 rel_loss=0.220 base=0.325 DM=-4.44 p=1.0000 -> rejected
+  2026-02-08  trigger=psi          psi_max=0.788 rel_loss=0.147 base=0.325 DM=-1.65 p=0.9497 -> rejected
+  2026-02-15  trigger=psi          psi_max=1.356 rel_loss=0.202 base=0.325 DM=-1.70 p=0.9546 -> rejected
+  2026-02-22  trigger=psi          psi_max=1.087 rel_loss=0.209 base=0.325 DM=+6.78 p=0.0000 -> PROMOTED
+  2026-03-13  trigger=pinball      psi_max=0.308 rel_loss=0.220 base=0.171 DM=-4.40 p=1.0000 -> rejected
+  2026-03-20  trigger=psi          psi_max=1.123 rel_loss=0.194 base=0.171 DM=-2.95 p=0.9983 -> rejected
+  2026-03-27  trigger=psi          psi_max=1.102 rel_loss=0.165 base=0.171 DM=+1.34 p=0.0901 -> rejected
+  2026-04-03  trigger=psi          psi_max=1.777 rel_loss=0.169 base=0.171 DM=-3.55 p=0.9998 -> rejected
+  2026-04-10  trigger=psi          psi_max=2.387 rel_loss=0.142 base=0.171 DM=+0.28 p=0.3903 -> rejected
+  2026-04-17  trigger=psi          psi_max=2.904 rel_loss=0.158 base=0.171 DM=+0.82 p=0.2075 -> rejected
+  2026-04-24  trigger=psi          psi_max=3.428 rel_loss=0.163 base=0.171 DM=-1.81 p=0.9648 -> rejected
+  2026-05-01  trigger=psi          psi_max=3.123 rel_loss=0.156 base=0.171 DM=-0.52 p=0.6993 -> rejected
+  2026-05-08  trigger=psi          psi_max=2.177 rel_loss=0.140 base=0.171 DM=-2.49 p=0.9934 -> rejected
+  2026-06-07  trigger=psi          psi_max=1.097 rel_loss=0.187 base=0.171 DM=-1.02 p=0.8464 -> rejected
+  2026-07-14  trigger=psi          psi_max=0.956 rel_loss=0.147 base=0.171 DM=-1.40 p=0.9180 -> rejected
+  2026-07-21  trigger=psi          psi_max=1.075 rel_loss=0.163 base=0.171 DM=-3.49 p=0.9997 -> rejected
+  2026-07-28  trigger=psi          psi_max=1.701 rel_loss=0.174 base=0.171 DM=-5.19 p=1.0000 -> rejected
+  2026-08-27  trigger=pinball      psi_max=0.130 rel_loss=0.214 base=0.171 DM=-4.40 p=1.0000 -> rejected
+  2026-09-03  trigger=pinball      psi_max=0.210 rel_loss=0.241 base=0.171 DM=-1.75 p=0.9591 -> rejected
+  2026-09-17  trigger=pinball      psi_max=0.198 rel_loss=0.220 base=0.171 DM=-3.07 p=0.9988 -> rejected
+  2026-10-11  trigger=pinball      psi_max=0.374 rel_loss=0.225 base=0.171 DM=-3.34 p=0.9995 -> rejected
+
+runtime: 162.1 s
+report written to reports/backtest_hefei.json
+# exit code: 0

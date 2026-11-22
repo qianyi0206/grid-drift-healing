@@ -1,0 +1,41 @@
+$ pytest -v
+# date: 2026-11-23 00:42:16 CST  host: Linux 6.12.113+  python: Python 3.13.5  commit: fb9aa20
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.2.0, pluggy-1.7.0 -- /workspace/grid-drift-healing/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /workspace/grid-drift-healing
+configfile: pyproject.toml
+testpaths: tests
+collecting ... collected 28 items
+
+tests/test_ingestion.py::test_validate_ok PASSED                         [  3%]
+tests/test_ingestion.py::test_validate_missing_var PASSED                [  7%]
+tests/test_ingestion.py::test_validate_length_mismatch PASSED            [ 10%]
+tests/test_ingestion.py::test_api_error_payload PASSED                   [ 14%]
+tests/test_ingestion.py::test_out_of_range_interpolated PASSED           [ 17%]
+tests/test_ingestion.py::test_too_many_nans_rejected PASSED              [ 21%]
+tests/test_ingestion.py::test_bundled_real_sample_validates PASSED       [ 25%]
+tests/test_ingestion.py::test_cache_roundtrip PASSED                     [ 28%]
+tests/test_ingestion.py::test_offline_fallback_is_labelled_synthetic PASSED [ 32%]
+tests/test_ingestion.py::test_synthetic_shape PASSED                     [ 35%]
+tests/test_metrics_drift_gate.py::test_pinball_known_values PASSED       [ 39%]
+tests/test_metrics_drift_gate.py::test_crps_quantile_approx_reasonable PASSED [ 42%]
+tests/test_metrics_drift_gate.py::test_coverage PASSED                   [ 46%]
+tests/test_metrics_drift_gate.py::test_psi_same_vs_shifted PASSED        [ 50%]
+tests/test_metrics_drift_gate.py::test_psi_detector PASSED               [ 53%]
+tests/test_metrics_drift_gate.py::test_degradation_detector PASSED       [ 57%]
+tests/test_metrics_drift_gate.py::test_dm_detects_better_candidate PASSED [ 60%]
+tests/test_metrics_drift_gate.py::test_dm_rejects_equal_or_worse PASSED  [ 64%]
+tests/test_metrics_drift_gate.py::test_dm_size_under_null PASSED         [ 67%]
+tests/test_metrics_drift_gate.py::test_dm_needs_data PASSED              [ 71%]
+tests/test_metrics_drift_gate.py::test_degradation_relative_is_scale_free PASSED [ 75%]
+tests/test_models_backtest.py::test_pv_power_bounds PASSED               [ 78%]
+tests/test_models_backtest.py::test_features_no_lookahead PASSED         [ 82%]
+tests/test_models_backtest.py::test_models_quantiles_ordered PASSED      [ 85%]
+tests/test_models_backtest.py::test_gbm_beats_naive PASSED               [ 89%]
+tests/test_models_backtest.py::test_healing_recovers_from_injected_drift PASSED [ 92%]
+tests/test_models_backtest.py::test_cli_offline PASSED                   [ 96%]
+tests/test_models_backtest.py::test_irradiance_not_a_feature PASSED      [100%]
+
+============================= 28 passed in 22.43s ==============================
+# exit code: 0
